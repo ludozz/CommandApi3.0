@@ -41,7 +41,7 @@
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.destroystokyo.paper</groupId>
             <artifactId>paper</artifactId>
             <version>1.16.5-R0.1-SNAPSHOT</version>
@@ -54,6 +54,12 @@
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>system</scope>
             <systemPath>${api}/craftbukkit-1.16.5-R0.1-SNAPSHOT.jar</systemPath>
+        </dependency>-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -70,7 +76,8 @@
         <dependency>
             <groupId>me.ludozz.configurationutils</groupId>
             <artifactId>ConfigurationUtils</artifactId>
-            <version>1.1.2</version>
+            <!-- change to 1.1.2-->
+            <version>1.1.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

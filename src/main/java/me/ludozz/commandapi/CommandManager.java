@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
 @SuppressWarnings("unused")
-public final class CommandManager extends ICommandManager {
+public final class CommandManager extends CommandApi {
 
     private static final String apiVersion = "${project.version}";
     private static Logger logger = null;
@@ -100,18 +100,17 @@ public final class CommandManager extends ICommandManager {
     }
 
     public static CommandManager getInstance(@NotNull Plugin plugin, @NotNull String requestedApiVersion) {
-        getInstance();
         if (!(requestedApiVersion.isEmpty() || requestedApiVersion.contains("beta")
-                || getApiVersion().contains("beta"))) {
-            final String[] versionSplit = getApiVersion().split("\\.");
+                || commandManager.getApiVersion().contains("beta"))) {
+            final String[] versionSplit = commandManager.getApiVersion().split("\\.");
             final String[] requestedSplit = requestedApiVersion.split("\\.");
             for (int i = 0; i < versionSplit.length; i++) {
                 int version = Integer.parseInt(versionSplit[i]);
                 int requested = Integer.parseInt(requestedSplit[i]);
                 if (requested < version) {
                     logger.warning("  \n \n \n" + plugin.getName() + " tried to use CommandApi version "
-                            + requestedApiVersion + ", but the server provides a newer version " + getApiVersion()
-                            + "\n Please update the plugin to the latest!\n \n ");
+                            + requestedApiVersion + ", but the server provides a newer version "
+                            + commandManager.getApiVersion() + "\n Please update the plugin to the latest!\n \n ");
                     break;
                 }
             }
@@ -390,7 +389,7 @@ public final class CommandManager extends ICommandManager {
     }
 
     @NotNull
-    public static String getApiVersion() {
+    public String getApiVersion() {
         return version;
     }
 
