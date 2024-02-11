@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Logger;
 
 @SuppressWarnings("unused")
-public final class CommandManager extends CommandApi {
+public final class CommandManager implements CommandApi {
 
     private static final String apiVersion = "${project.version}";
     private static Logger logger = null;
@@ -99,7 +99,7 @@ public final class CommandManager extends CommandApi {
         return commandManager;
     }
 
-    public static CommandManager getInstance(@NotNull Plugin plugin, @NotNull String requestedApiVersion) {
+    public static CommandApi getInstance(@NotNull Plugin plugin, @NotNull String requestedApiVersion) {
         if (!(requestedApiVersion.isEmpty() || requestedApiVersion.contains("beta")
                 || commandManager.getApiVersion().contains("beta"))) {
             final String[] versionSplit = commandManager.getApiVersion().split("\\.");

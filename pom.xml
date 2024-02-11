@@ -29,7 +29,7 @@
         </repository>
     </repositories>
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>com.destroystokyo.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>1.16.5-R0.1-SNAPSHOT</version>
@@ -40,15 +40,28 @@
             <artifactId>paper-mojangapi</artifactId>
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
-        </dependency>
-        <!--<dependency>
-            <groupId>com.destroystokyo.paper</groupId>
-            <artifactId>paper</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${api}/paper-1.16.5.jar</systemPath>
+        </dependency>-->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.20.4-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>com.destroystokyo.paper</groupId>
+            <artifactId>paper</artifactId>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${api}/paper-1.20.1.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${api}/craftbukkit-1.8.8-R0.1-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <!--<dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
             <version>1.16.5-R0.1-SNAPSHOT</version>
@@ -70,14 +83,13 @@
         <dependency>
             <groupId>me.ludozz.reflectionutils</groupId>
             <artifactId>ReflectionUtils</artifactId>
-            <version>1.7.1</version>
+            <version>1.7.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>me.ludozz.configurationutils</groupId>
             <artifactId>ConfigurationUtils</artifactId>
-            <!-- change to 1.1.2-->
-            <version>1.1.0</version>
+            <version>1.1.2</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -96,7 +108,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.2</version>
                 <configuration>
-                    <outputDirectory>${user.home}/Downloads/server/spigot/plugins</outputDirectory>
+                    <outputDirectory>${api}</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
